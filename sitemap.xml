@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://blog.kabubuda.xyz.com/undefined/docker-install/</loc>
+    
+    <lastmod>2021-11-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kabubuda.xyz.com/undefined/mini+OpenWrt/</loc>
+    
+    <lastmod>2021-11-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kabubuda.xyz.com/undefined/move-info/</loc>
+    
+    <lastmod>2021-11-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kabubuda.xyz.com/undefined/WSl2+vscode=Linux/</loc>
+    
+    <lastmod>2021-11-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kabubuda.xyz.com/tags/index.html</loc>
+    
+    <lastmod>2021-10-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kabubuda.xyz.com/categories/index.html</loc>
+    
+    <lastmod>2021-10-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
+  <url>
+    <loc>https://blog.kabubuda.xyz.com/</loc>
+    <lastmod>2021-12-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  
+  <url>
+    <loc>https://blog.kabubuda.xyz.com/tags/WSL/</loc>
+    <lastmod>2021-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kabubuda.xyz.com/tags/windows/</loc>
+    <lastmod>2021-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kabubuda.xyz.com/tags/Docker/</loc>
+    <lastmod>2021-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kabubuda.xyz.com/tags/OpenWrt/</loc>
+    <lastmod>2021-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kabubuda.xyz.com/tags/%E7%94%B5%E5%BD%B1/</loc>
+    <lastmod>2021-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+
+  
+  <url>
+    <loc>https://blog.kabubuda.xyz.com/categories/%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2021-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kabubuda.xyz.com/categories/%E6%8A%98%E8%85%BE/</loc>
+    <lastmod>2021-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kabubuda.xyz.com/categories/%E5%A8%B1%E4%B9%90/</loc>
+    <lastmod>2021-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+</urlset>
