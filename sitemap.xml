@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.kabubuda.xyz.com/undefined/%E9%98%BF%E9%87%8C%E4%BA%91MQTT/</loc>
+    
+    <lastmod>2021-12-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.kabubuda.xyz.com/undefined/docker%E4%BD%BF%E7%94%A8/</loc>
     
     <lastmod>2021-12-08</lastmod>
@@ -74,6 +83,13 @@
 
   
   <url>
+    <loc>https://blog.kabubuda.xyz.com/tags/Docker/</loc>
+    <lastmod>2021-12-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.kabubuda.xyz.com/tags/WSL/</loc>
     <lastmod>2021-12-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -82,13 +98,6 @@
   
   <url>
     <loc>https://blog.kabubuda.xyz.com/tags/windows/</loc>
-    <lastmod>2021-12-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.kabubuda.xyz.com/tags/Docker/</loc>
     <lastmod>2021-12-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
