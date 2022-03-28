@@ -774,15 +774,17 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('toggle-menu').addEventListener('click', () => { sidebarFn.open() })
   }
 
+  //百度统计
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?03b8b52eb64a27f818e44b343338d3cd";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+
+
+
   refreshFn()
   unRefreshFn()
 })
-
-// 百度统计
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?03b8b52eb64a27f818e44b343338d3cd";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
