@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.kabubuda.xyz/post/bb7571ed/</loc>
+    
+    <lastmod>2022-05-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.kabubuda.xyz/post/8ed3a32/</loc>
     
     <lastmod>2022-05-12</lastmod>
@@ -11,9 +20,9 @@
   </url>
   
   <url>
-    <loc>https://blog.kabubuda.xyz/post/bb7571ed/</loc>
+    <loc>https://blog.kabubuda.xyz/post/24a94fb6/</loc>
     
-    <lastmod>2022-05-11</lastmod>
+    <lastmod>2022-05-12</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -21,15 +30,6 @@
   
   <url>
     <loc>https://blog.kabubuda.xyz/post/f4c2f60d/</loc>
-    
-    <lastmod>2022-05-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.kabubuda.xyz/post/24a94fb6/</loc>
     
     <lastmod>2022-05-11</lastmod>
     
