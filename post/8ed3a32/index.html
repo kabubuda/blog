@@ -1,0 +1,400 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>软件测试基本技术 | Kabuda</title><meta name="keywords" content="软件测试"><meta name="author" content="Kabuda"><meta name="copyright" content="Kabuda"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="白盒测试方法的准备时间很长，完成一个覆盖全部程序语句、分支的测试，一般要花费比编程更长的时间。白盒测试方法所要求的技术也比较高，虽然可使测试人员仔细检查软件的实现，对代码的检测也比较彻底，但仍存在一些局限性 黑盒测试不去考虑程序内部结构和内部特性，主要是验证软件所应该具有的功能是否已实现，软件系统的性能是否能够满足用户的要求，所有黑盒测试方法对技术要求较低，方法简单有效，可以整体测试系统的行为，也">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件测试基本技术">
+<meta property="og:url" content="https://blog.kabubuda.xyz/post/8ed3a32/">
+<meta property="og:site_name" content="Kabuda">
+<meta property="og:description" content="白盒测试方法的准备时间很长，完成一个覆盖全部程序语句、分支的测试，一般要花费比编程更长的时间。白盒测试方法所要求的技术也比较高，虽然可使测试人员仔细检查软件的实现，对代码的检测也比较彻底，但仍存在一些局限性 黑盒测试不去考虑程序内部结构和内部特性，主要是验证软件所应该具有的功能是否已实现，软件系统的性能是否能够满足用户的要求，所有黑盒测试方法对技术要求较低，方法简单有效，可以整体测试系统的行为，也">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220511153945677.png">
+<meta property="article:published_time" content="2022-05-11T07:28:42.000Z">
+<meta property="article:modified_time" content="2022-05-12T02:59:14.353Z">
+<meta property="article:author" content="Kabuda">
+<meta property="article:tag" content="软件测试">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220511153945677.png"><link rel="shortcut icon" href="/img/xiaoxin-s.png"><link rel="canonical" href="https://blog.kabubuda.xyz/post/8ed3a32/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '软件测试基本技术',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-05-12 10:59:14'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/hexo-butterfly-tag-plugins-plus@latest/lib/carousel-touch.min.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/kabuda.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%8A%98%E8%85%BE/"><i class="fa-fw fas fa-tags"></i><span> 折腾</span></a></li><li><a class="site-page child" href="/categories/%E7%BC%96%E7%A8%8B/"><i class="fa-fw fas fa-tags"></i><span> 编程</span></a></li><li><a class="site-page child" href="/categories/%E5%88%86%E4%BA%AB/"><i class="fa-fw fas fa-tags"></i><span> 分享</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220511153945677.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Kabuda</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%8A%98%E8%85%BE/"><i class="fa-fw fas fa-tags"></i><span> 折腾</span></a></li><li><a class="site-page child" href="/categories/%E7%BC%96%E7%A8%8B/"><i class="fa-fw fas fa-tags"></i><span> 编程</span></a></li><li><a class="site-page child" href="/categories/%E5%88%86%E4%BA%AB/"><i class="fa-fw fas fa-tags"></i><span> 分享</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">软件测试基本技术</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-05-11T07:28:42.000Z" title="发表于 2022-05-11 15:28:42">2022-05-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-05-12T02:59:14.353Z" title="更新于 2022-05-12 10:59:14">2022-05-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="软件测试基本技术"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>白盒测试方法的准备时间很长，完成一个覆盖全部程序语句、分支的测试，一般要花费比编程更长的时间。白盒测试方法所要求的技术也比较高，虽然可使测试人员仔细检查软件的实现，对代码的检测也比较彻底，但仍存在一些局限性</p>
+<p>黑盒测试不去考虑程序内部结构和内部特性，主要是验证软件所应该具有的<strong>功能</strong>是否已实现，软件系统的性能是否能够满足用户的要求，所有黑盒测试方法对技术要求较低，方法简单有效，可以整体测试系统的行为，也可以从头到尾进行数据完整性测验</p>
+<p><strong>白盒测试和黑盒测试是辩证统一的，它们相互依赖而存在，彼此对立又相互补充</strong></p>
+<h1 id="白盒测试"><a href="#白盒测试" class="headerlink" title="白盒测试"></a>白盒测试</h1><p>已知产品内部工作过程，可以通过测试验证每种内部操作是否符合设计规范要求，所有内部成分是否已经经过检查</p>
+<p>白盒测试须对程序模块进行如下检查</p>
+<ul>
+<li><p>保证一个模块中的所有独立路径至少被执行一次</p>
+</li>
+<li><p>对所有逻辑值均测试true和false</p>
+</li>
+<li><p>在循环的边界和运行的界限内执行循环体</p>
+</li>
+<li><p>检查内部数据结构以确定其有效性</p>
+</li>
+</ul>
+<h2 id="静态测试"><a href="#静态测试" class="headerlink" title="静态测试"></a>静态测试</h2><h3 id="代码检查法"><a href="#代码检查法" class="headerlink" title="代码检查法"></a>代码检查法</h3><p>代码检查法主要是通过 <strong><em>桌面检查、代码审查和走查</em></strong> 方式，对以下内容进行检查</p>
+<ul>
+<li>检查代码和设计的一致性</li>
+<li>代码的可读性以及对软件设计标准的遵循情况</li>
+<li>代码逻辑表达的正确性</li>
+<li>代码结构的合理性</li>
+<li>程序中不安全、不明确和模糊的部分</li>
+<li>编程风格方面的问题</li>
+</ul>
+<ol>
+<li><p>桌面检查：程序设计人员对源程序代码进行分析、检验，并补充相关的文档，发现程序中的错误。</p>
+<ul>
+<li>检查变量的交叉引用表：检查未说明的变量、违反了类型规定的变量以及变量的引用和使用情况</li>
+<li>检查标号的交叉引用表：验证所有标号的正确性以及转向指定位置的标号是否正确</li>
+<li>检查子程序、宏、函数：验证每次调用与所调用位置是否正确，调用的子程序、宏、函数是否存在，参数是否一致</li>
+<li>等价性检查：检查全部等价变量的类型的一致性</li>
+<li>常量检查：确认常量的取值和数制、数据类型，检查常量每次引用同它的取值等的一致性</li>
+<li>设计标准检查：检查程序是否违反设计标准的问题</li>
+<li>风格检查：检查程序的设计风格方面的问题</li>
+<li>比较控制流：比较设计控制流图和实际程序生成的控制流图的差异</li>
+<li>选择、激活路径：在设计控制流图中选择某条路径，到实际的程序中激活这条路径，如果不能激活，则程序可能有错</li>
+<li>对照程序的规格说明，详细阅读源代码</li>
+</ul>
+</li>
+<li><p>代码审查</p>
+<p>代码审查一般由程序设计人员和测试人员组成审查小组，通过阅读、讨论，对程序进行静态分析。</p>
+</li>
+<li><p>走查</p>
+<p>走查一般由程序设计人员和测试人员组成审查小组，通过逻辑运行程序，发现问题。</p>
+</li>
+</ol>
+<h2 id="静态结构分析法"><a href="#静态结构分析法" class="headerlink" title="静态结构分析法"></a>静态结构分析法</h2><ol>
+<li><p>通过生成各种图表，来帮助对源程序的静态分析。常用的各种引用表有：</p>
+<ol>
+<li><p>标号交叉引用表。 列出在各模块中出现的全部符号，并标出符号的属性</p>
+</li>
+<li><p>变量交叉引用表。 即变量定义与引用表。在表中应标明各变量的属性</p>
+</li>
+<li><p>子程序（宏、函数）引用表。 在表中列出各个子程序、宏、和函数的属性</p>
+</li>
+<li><p>等价表。 需要列出在等价语句或等值语句中出现的全局变量和标号</p>
+</li>
+<li><p>常数表。 需要列出全部数字常数和字符常数，并指出它们在那些语句中首先被定义</p>
+<p>常用的各种关系图、控制流图主要有<strong>函数调用关系图</strong>和<strong>模块控制流图</strong></p>
+<p>函数调用关系图： 列出所有函数，用连线表示调用关系。可以发现系统是否存在<strong>结构缺陷</strong>，发现哪些函数是重要的哪些是次要的，需要用什么级别的覆盖要求等。</p>
+<p>模块控制流图： 由许多结点和连接结点的边组成的图形，结点表示语句，边表示控制流向。可以直观的反映出一个函数的内部结构</p>
+</li>
+</ol>
+</li>
+<li><p>静态错误分析： 主要用于确定在源程序中是否有某类错误或“危险”结构。</p>
+<ol>
+<li><p>类型和单位分析。 类型和单位分析主要为了强化对源程序中数据类型的检查</p>
+</li>
+<li><p><strong>引用分析</strong>。 <em>最广泛使用的静态错误分析方法</em>  如果沿着程序的控制路径，变量在赋值以前被引用或赋值后未引用，则发生了引用异常。为了检测引用，需要检查通过程序的每一条路径。通常采用类似深度优先的方法遍历程序流程图的每一条路径</p>
+</li>
+<li><p>表达式分析。 对表达式进行分析，可以发现和纠正在表达式中出现的错误。如：</p>
+<p>在表达式中不正确的使用了括号        数组下标越界        除数为0</p>
+</li>
+<li><p>接口分析。 可以检查模块之间接口的一致性和模块与外部数据库之间接口的一致性。</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="程序插桩"><a href="#程序插桩" class="headerlink" title="程序插桩"></a>程序插桩</h2><blockquote>
+<p>在软件白盒测试中，程序插桩是一种基本的检测手段，有着广泛的引用</p>
+</blockquote>
+<p>程序插桩是借助被测程序中插入操作，来实现测试目的的方法，即向源程序中添加一些语句，实现对程序语句的执行、变量的变化等情况进行检查。</p>
+<p>设计插桩程序时需要考虑的问题如下：</p>
+<ul>
+<li>探测哪些信息？<ul>
+<li>需要结合具体情况解决</li>
+</ul>
+</li>
+<li>在程序的什么部位设置探测点？<ul>
+<li>程序的第一个可执行语句之前</li>
+<li>for、do、while 等循环语句处</li>
+<li>输入/输出语句之后</li>
+<li>函数、子程序调用语句之后</li>
+<li>return、goto语句之后</li>
+<li>。。。。。。。</li>
+</ul>
+</li>
+<li>需要设置多少个探测点？<ul>
+<li>在一般情况下，没用分支的程序段中秩序一个计数语句。如果出现了多种控制结构，则需针对情况分析</li>
+</ul>
+</li>
+<li>如何在程序中特定部位插入某些用以判断变量特性的语句？<ul>
+<li>可在程序中特定部位插入某些用以判断变量特性的语句，使得程序执行中这些语句得以证实（断言语句）</li>
+</ul>
+</li>
+</ul>
+<h2 id="逻辑覆盖"><a href="#逻辑覆盖" class="headerlink" title="逻辑覆盖"></a>逻辑覆盖</h2><h3 id="逻辑覆盖的类型"><a href="#逻辑覆盖的类型" class="headerlink" title="逻辑覆盖的类型"></a>逻辑覆盖的类型</h3><ul>
+<li>语句覆盖： 使程序中每条可执行语句至少被执行一次</li>
+<li>判定覆盖（分支覆盖）：使程序中每个判断的取真分支和取假分支至少执行一次</li>
+<li>条件覆盖：使程序中<strong>每个判断的每个条件的每个可能取值</strong>至少执行一次</li>
+<li>判断/条件覆盖：使程序中每个判断的每个条件的所有可能取值至少执行一次，并且<strong>每个可能的判断结果</strong>也至少执行一次</li>
+<li>条件组合覆盖：使程序中每个判断的所有可能的条件取值组合至少执行一次</li>
+</ul>
+<p>举例：</p>
+<p>如下C语言程序和对应程序流程图</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">(<span class="keyword">float</span> a, <span class="keyword">float</span> B, <span class="keyword">float</span> X)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(A&gt;<span class="number">1</span>&amp;&amp;B=<span class="number">0</span>)</span><br><span class="line">        X=X/A;</span><br><span class="line">    <span class="keyword">if</span>(A=<span class="number">2</span>||X&gt;<span class="number">1</span>)</span><br><span class="line">        X=X+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220512101934809.png" alt="image-20220512101934809" style="zoom:96%;" /></p>
+<ol>
+<li>语句覆盖</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>路径</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a-c-e</td>
+<td>A=2, B=0, X=3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol>
+<li><p>判定覆盖</p>
+<p>| 路径  | 数据          |<br>| ——- | ——————- |<br>| a-c-e | A=2, B=0, X=3 |<br>| a-b-d | A=2, y=5, z=5 |</p>
+</li>
+</ol>
+<ol>
+<li><p>条件覆盖</p>
+<p>有四个条件： A&gt;1、B=0、A=2、X&gt;1</p>
+<p>需要执行测试用例使得在a点有A&gt;1、A≤1、B=0、B!=0，在b点有A=2、A!=2、X&gt;1、X≤1</p>
+<p>对于第一个判断:</p>
+<p>条件A&gt;1    取真值为T1， 假值为F1</p>
+<p>条件B=0    真值T2，假值F2</p>
+<p>第二个判断:</p>
+<p>条件X&gt;1    真值T3，假值F3</p>
+<p>| 路径  | 数据                      |<br>| ——- | ————————————- |<br>| a-c-e | A=2, B=0, X=4（F1 T2 F3） |<br>| a-b-d | A=1, B=1, X=1（T1 F2 T3） |</p>
+</li>
+</ol>
+<ol>
+<li><p>条件判断组合覆盖</p>
+<p>| 路径  | 数据                                         |<br>| ——- | —————————————————————— |<br>| a-c-e | A=2, B=0, X=4（F1 T2 F3） 分支1：T、分支2：T |<br>| a-b-d | A=1, B=1, X=1（T1 F2 T3） 分支1：F、分支2：F |</p>
+</li>
+<li><p>多条件覆盖</p>
+<ol>
+<li><p>第一分支：T1T2    T1F2    F1T2    F1F2</p>
+</li>
+<li><p>第二分支：T1T3    T1F3    F1T3    F1F3</p>
+<p>根据如上标记取值</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="测试覆盖准则"><a href="#测试覆盖准则" class="headerlink" title="测试覆盖准则"></a>测试覆盖准则</h3><ol>
+<li><p>错误命该测试用例分例（ESTCA）准测。</p>
+<ul>
+<li><p>规则1：对于A rel B（rel可以是&lt;、=或&gt;）型的分支谓词（条件判断）的取值，应适当地选择A与B的值，使得测试执行到该分支语句时，A<B、A=B和A>B的情况分别出现一次。</p>
+</li>
+<li><p>规则2：对于A rel C（rel可以是&lt;、或&gt;，A是变量，C是常量）型的分支谓词，当rel为&lt;时，应适当地选择A的值，使：A=C-M （M是距C最近的机器容许正数，若A和C均为整数时，M=1）。同样，当rel为&gt;时，应适当地选择A，使得A=C+M。</p>
+</li>
+<li><p>规则3：对外部输入变量赋值，使其在每一个测试用例中均有不同的值与符号，并与同一组测试用例中其他变量的值和符号不一致。</p>
+</li>
+</ul>
+<p>ESTCA的缺陷：一方面，有时不容易找到输入数据使得规则所指的变量满足要求；另一方面ESTCA规则也仍有许多缺陷发现不了</p>
+</li>
+<li><p>LCSAJ（线性代码序列与跳转）LCSAJ是指一组顺序执行的代码，以控制流跳转为结束点。它可产生以下4层覆盖：</p>
+<ul>
+<li><p>第一层：语句覆盖。</p>
+</li>
+<li><p>第二层：分支覆盖。</p>
+</li>
+<li><p>第三层：LCSAJ覆盖。</p>
+</li>
+<li><p>第四层：两两LCSAJ覆盖，直到N个LCSAJ。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="基本路径测试"><a href="#基本路径测试" class="headerlink" title="基本路径测试"></a>基本路径测试</h2><h3 id="程序的控制流程图"><a href="#程序的控制流程图" class="headerlink" title="程序的控制流程图"></a>程序的控制流程图</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220511153945677.png" alt="控制流程图的图形符号" style="zoom:90%;" />   控制流程图的图形符号</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220512095304348.png" alt="流程图" /> 程序流程图和对应的控制流程图</p>
+<h3 id="基本路径测试的步骤"><a href="#基本路径测试的步骤" class="headerlink" title="基本路径测试的步骤"></a>基本路径测试的步骤</h3><ol>
+<li><p>画出程序控制流程图</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/2008347909.jpg" alt="程序流程图"></p>
+</li>
+<li><p>计算程序环路复杂性</p>
+<ul>
+<li>将环路复杂性定义为<strong>程序控制流图</strong>中的区域数</li>
+<li>设E为程序控制流图的边数，N为图的节点数，则环路复杂性为V(G)=E-N+2</li>
+<li>设P为程序控制流图中的判定结点数，则有V(G)=P+1</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/2008343602.jpg" alt="计算环路复杂度"></p>
+</li>
+<li><p>确定独立路径集合</p>
+<p>|       |                  |<br>| :—— | ———————— |<br>| 路径1 | 4-14             |<br>| 路径2 | 4-6-7-14         |<br>| 路径3 | 4-6-8-10-13-4-14 |<br>| 路径4 | 4-6-8-11-13-4-14 |</p>
+</li>
+</ol>
+<ol>
+<li>准备测试用例，保证每条路径都能测试到。 <em>一些独立的路径往往部署完全孤立的，有可能时另一条路径测试的一部分</em></li>
+</ol>
+<h3 id="图形矩阵工具"><a href="#图形矩阵工具" class="headerlink" title="图形矩阵工具"></a>图形矩阵工具</h3><p> 连接权为“1”表示存在一个连接，在图中如果一行有两个或更多的元素“1”，则这行所代表的结点一定是一个判定结点，通过连接矩阵中有两个以上(包括两个)元素为“1”的个数，就可以得到确定该图圈复杂度的另一种算法。</p>
+<p>连接权值也可以被赋予其他属性：</p>
+<ul>
+<li>执行连接（边）的概率</li>
+<li>穿越连接的处理时间</li>
+<li>穿越连接所需内存</li>
+<li>穿越连接所需的资源</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/2008348329.jpg" alt="图形矩阵" style="zoom:130%;" /></p>
+<h2 id="其他白盒测试方法"><a href="#其他白盒测试方法" class="headerlink" title="其他白盒测试方法"></a>其他白盒测试方法</h2><h3 id="域测试"><a href="#域测试" class="headerlink" title="域测试"></a>域测试</h3></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Kabuda</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.kabubuda.xyz/post/8ed3a32/">https://blog.kabubuda.xyz/post/8ed3a32/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.kabubuda.xyz" target="_blank">Kabuda</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">软件测试</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220511153945677.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/post/24a94fb6/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220507174323666.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">软件测试概述</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/24a94fb6/" title="软件测试概述"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220507174323666.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-08</div><div class="title">软件测试概述</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/kabuda.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Kabuda</div><div class="author-info__description">我叫卡布达，我喜欢吃西瓜</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://qm.qq.com/cgi-bin/qm/qr?k=pJF0Twqn4iI1_Nw9TRlq4ay7mUqE1Ar3" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:2822797738@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">正在装修中··· 卡布 卡布</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95"><span class="toc-text">白盒测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E6%B5%8B%E8%AF%95"><span class="toc-text">静态测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5%E6%B3%95"><span class="toc-text">代码检查法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90%E6%B3%95"><span class="toc-text">静态结构分析法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E6%8F%92%E6%A1%A9"><span class="toc-text">程序插桩</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%A6%86%E7%9B%96"><span class="toc-text">逻辑覆盖</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%A6%86%E7%9B%96%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-text">逻辑覆盖的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E5%87%86%E5%88%99"><span class="toc-text">测试覆盖准则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%B7%AF%E5%BE%84%E6%B5%8B%E8%AF%95"><span class="toc-text">基本路径测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-text">程序的控制流程图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%B7%AF%E5%BE%84%E6%B5%8B%E8%AF%95%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="toc-text">基本路径测试的步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E7%9F%A9%E9%98%B5%E5%B7%A5%E5%85%B7"><span class="toc-text">图形矩阵工具</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95"><span class="toc-text">其他白盒测试方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E6%B5%8B%E8%AF%95"><span class="toc-text">域测试</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/8ed3a32/" title="软件测试基本技术"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220511153945677.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="软件测试基本技术"/></a><div class="content"><a class="title" href="/post/8ed3a32/" title="软件测试基本技术">软件测试基本技术</a><time datetime="2022-05-11T07:28:42.000Z" title="发表于 2022-05-11 15:28:42">2022-05-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/24a94fb6/" title="软件测试概述"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220507174323666.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="软件测试概述"/></a><div class="content"><a class="title" href="/post/24a94fb6/" title="软件测试概述">软件测试概述</a><time datetime="2022-05-08T08:30:10.000Z" title="发表于 2022-05-08 16:30:10">2022-05-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/bb7571ed/" title="设计模式概述"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设计模式概述"/></a><div class="content"><a class="title" href="/post/bb7571ed/" title="设计模式概述">设计模式概述</a><time datetime="2022-04-16T08:09:44.000Z" title="发表于 2022-04-16 16:09:44">2022-04-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/67c8035e/" title="SpringCloud笔记"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/kabubuda/picGo/img/SpringCloud.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SpringCloud笔记"/></a><div class="content"><a class="title" href="/post/67c8035e/" title="SpringCloud笔记">SpringCloud笔记</a><time datetime="2022-03-27T14:30:12.000Z" title="发表于 2022-03-27 22:30:12">2022-03-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/f4c2f60d/" title="阿里云服务器MQTT环境搭建"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/kabubuda/picGo/img/20211208222423.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="阿里云服务器MQTT环境搭建"/></a><div class="content"><a class="title" href="/post/f4c2f60d/" title="阿里云服务器MQTT环境搭建">阿里云服务器MQTT环境搭建</a><time datetime="2021-12-03T14:54:56.397Z" title="发表于 2021-12-03 22:54:56">2021-12-03</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220511153945677.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Kabuda</div><div class="footer_custom_text">喜欢您来</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card- history"> <div class="card-content"> <div class="item-headline"> <i class="fas fa-clock fa-spin"></i> <span>那年今日</span> </div> <div id="history-baidu" style="height: 100px;overflow: hidden"> <div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"> <div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"> </div> </div> </div> </div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='/'|| '/' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="ghbdages" style="overflow:hidden;max-height:90px;height:auto;text-align:center;margin-top:10px"><div class="swiper-wrapper"><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" title="主题版本Butterfly_v3.8.2"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/%E6%A1%86%E6%9E%B6Hexo-%E4%B8%BB%E9%A2%98Butterfly-blue?style=for-the-badge" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" title="本站使用腾讯云CDN提供静态加速"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/CDN-%E8%85%BE%E8%AE%AF%E4%BA%91-blue?logo=CodePen&amp;logoColor=red&amp;style=for-the-badge" alt=""/></a><a class="github-badge" target="_blank" href="https://beian.miit.gov.cn/" style="margin-inline:5px" title="本站已在工信部备案 赣ICP备2021003010号"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/%E8%B5%A3ICP%E5%A4%87-2021003010%E5%8F%B7-yellowgreen?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFDUlEQVQ4y0XU228c9RnG8e8cdnZ29jRrr3e99aYBxwpOIME0SVuo66RpBWllDPJFIAhVRYRjRVGrctPSC0Qv6A2oqKWt0lw0KBetQEKNo5QkBBVIRKAoKUmUg3Ecx2vHsffg3dmdw87O/HoR1f4HPnpe6XleSQgBdguAEBlZhDhaiVikF2j22lfPjH145POnPKej7bj/7n1dmze/B/0lzxNEHQdkCZABIJVEEkLg23WQBHIgULQM8NGOySNHnzv5rytjwpnUZz0DJWOyNqvjlI3O8Pf7JzY8OL5fBLdNCK+JkCRAoKT7btENyaIplhFGBjRXP/Gn/R/++Onju5vujL4+obBXv8mz+iz33Zun6968uvfpYw8fffO1Q1JM0WxNwuU/+OoXsJJVkZGVFKpcKXpnXn3/9wfr7Nnbz0+KDdJ/uUDlckBlKqA++mceCs7x4oFH2feuj7j813cThqvLegI9Hl0FE55FPFofvD7x8tTI6LkRcyDPT7PnmD7YQF5jElht8EKkHpNTL5xkt3GG/Hfu4Qejh0eXPtk/bc+cXX/xg3+uglHPQXXfTxy6nNQ+m9/KD7daNM82kK/Xkcwo0WqAe/Imkdu70ZsO5b+dZvyBNie+2sjbHwe9CallIA+tgvWlcjH89IM3QikGqk3KmqexAJHAh6qLtM5A22Ii32ihEVKedujr8kCSqDVloj3qG4PD47etgDOXjo235+aGMwkNOlFEoUB2uJcmAuu+boI9RRKvDGG8uBm5xyC3JUvLboMQFHIGlM7uqM6eenIFNBKZOxuWT3+PC3o3R08bqDtTVB5cSzBnIX3Zwj58E396Ge2lYbp+fjfvHKgBcYY2qbSmFnFLU8UVMKzOjzZqKncVLYrf1Hjr7Tj/fq3E0LYCaSOJfaFGuOjhnquRnFvm/KtXePNAlPyQyaa+OuU5D796aXgFlNWWaTVkUktX2P1AQMdP4E8s0P33L5D7IrR7FMKcSnZngcKJq5T3nafVVhgfi5CsTGI1VNSkrAGoADHj68flO66NBfk+nviWxet9Pbw1twF/9gLdlUnkdAznQg1rIMdcpsA/5BikTJ749iKdZBHzTgkjs2ZiBQQ5JxqC+SmLuzZM89tfbuHll0aYsDZBw2fMrtBlyrxzOEkTA8jwi+d1tg1MMj8JuDZhxxpaAVWzvbWTzOMv+JQWL/Kz4Sjjx+OcOGJzSd7Mro1fUYiV6Rzqo11zWDNo8Ktd17h56hq2r6NnNVRTGwRuPQev+dljldO/O+gstPHKPpRmWPfwENG8DkGFoKLSXHRI394Fa7uhVGb6vcs4ySyJ/gSxXoP0wJ7tWuZHH0lCCAA6rf8+Xj3/+h8D10mVP15AjQt6t28gqDr4dgvZ0NG74khahMqpKTqBSnrrOnyXavqOkUfiZuq4pN1/62TfmcFZckruQszW82Eqv3OAoN4isBpgaCiaiRaD9nKTVqmGvrYbvZjHW7Zx56wwtqaJkkoR+39tRPsqCp/8OveNZG8kU8Crh4SBShgouEsWiJB2pU5zcglJiYAk4d4oE4nJ5L9byGqG9UzosLplTUkR7d72kGWn/2CXSramLJPKdYhINprko3jLCMchOZglNZBC1pqoaQ0p03u9o97zG9VY/4iiLbFaG+EjRVS7UYm/4FzMv+LUl3Z5/uz3vraxZ2NoSQndlLvUWBLrBtdjPaat5kbOVqcWjzkztaN923OhpCiIwAXgfy17NxK98SWXAAAAAElFTkSuQmCC&amp;style=for-the-badge" alt=""/></a></div></div></div><style>a.github-badge:hover:before {display:none}</style>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script defer src="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://cdn.jsdelivr.net/npm/hexo-butterfly-footer-beautify/lib/swiperbdage_init_js.min.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>
