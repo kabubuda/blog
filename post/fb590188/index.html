@@ -1,0 +1,371 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>软件测试过程 | Kabuda</title><meta name="keywords" content="软件测试"><meta name="author" content="Kabuda"><meta name="copyright" content="Kabuda"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="单元测试的目的是保证每个模块单独运行正确，多采用白盒技术，检查模块控制结构的某些特殊路径，期望覆盖尽可能多的出错点；经单元测试后的模块被组装为软件包，测试人员对软件包进行集成测试，主要测试软件结构问题，因该测试建立在模块间的接口上，所有多为黑盒测试，适当辅以白盒测试技术，这样能对主要控制路径进行测试；系统测试主要检验软件是否满足功能、行为和性能方面的要求，这一步完全采用黑盒测试技术；验收测试是检验">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件测试过程">
+<meta property="og:url" content="https://blog.kabubuda.xyz/post/fb590188/">
+<meta property="og:site_name" content="Kabuda">
+<meta property="og:description" content="单元测试的目的是保证每个模块单独运行正确，多采用白盒技术，检查模块控制结构的某些特殊路径，期望覆盖尽可能多的出错点；经单元测试后的模块被组装为软件包，测试人员对软件包进行集成测试，主要测试软件结构问题，因该测试建立在模块间的接口上，所有多为黑盒测试，适当辅以白盒测试技术，这样能对主要控制路径进行测试；系统测试主要检验软件是否满足功能、行为和性能方面的要求，这一步完全采用黑盒测试技术；验收测试是检验">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220516093934743.png">
+<meta property="article:published_time" content="2022-05-15T02:16:31.000Z">
+<meta property="article:modified_time" content="2022-05-16T02:16:35.026Z">
+<meta property="article:author" content="Kabuda">
+<meta property="article:tag" content="软件测试">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220516093934743.png"><link rel="shortcut icon" href="/img/xiaoxin-s.png"><link rel="canonical" href="https://blog.kabubuda.xyz/post/fb590188/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '软件测试过程',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-05-16 10:16:35'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/hexo-butterfly-tag-plugins-plus@latest/lib/carousel-touch.min.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/kabuda.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%8A%98%E8%85%BE/"><i class="fa-fw fas fa-tags"></i><span> 折腾</span></a></li><li><a class="site-page child" href="/categories/%E7%BC%96%E7%A8%8B/"><i class="fa-fw fas fa-tags"></i><span> 编程</span></a></li><li><a class="site-page child" href="/categories/%E5%88%86%E4%BA%AB/"><i class="fa-fw fas fa-tags"></i><span> 分享</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220516093934743.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Kabuda</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%8A%98%E8%85%BE/"><i class="fa-fw fas fa-tags"></i><span> 折腾</span></a></li><li><a class="site-page child" href="/categories/%E7%BC%96%E7%A8%8B/"><i class="fa-fw fas fa-tags"></i><span> 编程</span></a></li><li><a class="site-page child" href="/categories/%E5%88%86%E4%BA%AB/"><i class="fa-fw fas fa-tags"></i><span> 分享</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">软件测试过程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-05-15T02:16:31.000Z" title="发表于 2022-05-15 10:16:31">2022-05-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-05-16T02:16:35.026Z" title="更新于 2022-05-16 10:16:35">2022-05-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="软件测试过程"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>单元测试的目的是保证每个模块单独运行正确，多采用白盒技术，检查模块控制结构的某些特殊路径，期望覆盖尽可能多的出错点；经单元测试后的模块被组装为软件包，测试人员对软件包进行集成测试，主要测试软件结构问题，因该测试建立在模块间的接口上，所有多为黑盒测试，适当辅以白盒测试技术，这样能对主要控制路径进行测试；系统测试主要检验软件是否满足功能、行为和性能方面的要求，这一步完全采用黑盒测试技术；验收测试是检验软件产品的最后一道工序，与前面各测试过程的不同之处主要在于它突出了客户的作用，同时软件开发人员也有一定程度的参与</p>
+<h2 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h2><h3 id="单元测试的定义"><a href="#单元测试的定义" class="headerlink" title="单元测试的定义"></a>单元测试的定义</h3><p>单元测试是对软件设计的最小单元—模块进行正确性检验的测试工作，主要测试模块在语法、格式和逻辑上的错误。单元选择的依据如下：</p>
+<ul>
+<li>单元必须是可测的</li>
+<li>单元的行为或输出是可观测的</li>
+<li>有明确的可定义边界或接口</li>
+</ul>
+<p>确定单元最基本的原则是”高内聚，低耦合“</p>
+<p>单元测试应对模块内所有重要的控制路径进行测试，以便发现模块内部的错误。</p>
+<p>单元测试的重要性：</p>
+<ol>
+<li>时间方面：如果认真做好了单元测试，在系统集成联调时非常顺利，那么就会节约很多时间</li>
+<li>测试效果方面：根据以往的测试经验来看，单元测试的效果时非常明显的，首先它是测试阶段的基础，做好了单元测试，在做后期的集成测试和系统测试时就会很顺畅。其次，在单元测试过程中能发现一些很深层次的问题，同时还会发现一些在后面测试过程很难发现的问题。最后，单元测试关注的范围也很特殊，它不仅仅时证明这些代码能做什么，更重要的时掌握代码时如何做的，是否做了它该做的事而没有做不该做的事</li>
+<li>测试成本方面:在单元测试时，某些问题很容易被发现，如果这些问题在后期的测试中被发现，成本可能有数倍的提示</li>
+<li>产品质量方面：单元测试的好与坏直接影响到产品的质量</li>
+</ol>
+<p>单元测试原则：</p>
+<ol>
+<li>单元测试越早进行越好</li>
+<li>单元测试应该根据《软件详细设计规范说明》进行</li>
+<li>对于修改过的代码应该重做单元测试</li>
+<li>当测试用例的测试结果与设计规格说明上的预期结果不一致时，测试人员应该如实记录实际的测试结果</li>
+<li>单元测试应注意选择好被测软件单元的大小</li>
+<li>一个完整的单元测试说明应该包含正面测试和负面测试。正面测试验证程序应该执行的工作，负面测试验证程序不应该执行的工作</li>
+<li>注意使用单元测试工具</li>
+</ol>
+<h3 id="单元测试的主要任务"><a href="#单元测试的主要任务" class="headerlink" title="单元测试的主要任务"></a>单元测试的主要任务</h3><ol>
+<li><p>模块接口测试</p>
+<p>主要涉及如下方面的内容：</p>
+<ul>
+<li>模块接受输入的实际参数个数与模块的形式参数个数是否一致</li>
+<li>实参类型和形参类型/单位是否匹配</li>
+<li>调用其他模块时，所传送的实参个数/类型/单位与被调用模块的形参是否一致</li>
+<li>调用内部函数时，参数的个数、属性、次序是否正确</li>
+<li>在模块有多个入口的情况下，是否引用了与当前入口无关的参数</li>
+<li>是否会修改只读形参数</li>
+<li>出现全局变量时，这些变量是否在所有引用它们的模块中都有相同的定义</li>
+<li>有没有把某些约束当作参数来传送</li>
+</ul>
+<p>如果模块内包括外部输入/输出，还应考虑以下问题：</p>
+<ul>
+<li>文件属性是否正确</li>
+<li>文件打开语句的格式是否正确</li>
+<li>格式说明与输入/输出语句给出的信息是否一致</li>
+<li>是否处理了文件尾</li>
+<li>对文件结束条件的判断和处理是否正确</li>
+<li>是否存在输出信息的文字性错误</li>
+</ul>
+</li>
+<li><p>模块局部数据结构测试</p>
+<p>在单元测试工作过程中，必须测试模块内部的数据能否保持完整性、正确性，包括内部数据的内容、形式及相互关系不发生错误。对于局部数据结构应该在单元测试中注意发现以下几类错误：</p>
+<ul>
+<li>不正确的或不一致的类型说明</li>
+<li>错误的初始化或默认值</li>
+<li>错误的变量名，如拼写错误或缩写错误等</li>
+<li>不相容的数据类型</li>
+<li>下溢、上溢或者地址错误</li>
+</ul>
+</li>
+<li><p>模块中所有独立执行路径测试</p>
+<ul>
+<li>误解的或不正确使用算术优先级</li>
+<li>混合类型的运算</li>
+<li>错误的初始化</li>
+<li>算法错误</li>
+<li>运算精确度不够精确</li>
+<li>表达式的符号表示不正确</li>
+</ul>
+<p>针对判断和条件覆盖，测试用例还要能发现如下错误：</p>
+<ul>
+<li>不同数据类型的比较</li>
+<li>不正确的逻辑操作或优先级</li>
+<li>应当相等的地方由于精确度的错误而不能相等</li>
+<li>不正确的判定或不正确的变量</li>
+<li>不正常的或不存在的循环终止</li>
+<li>当遇到分支循环时不能退出</li>
+<li>不适当地修改循环变量</li>
+</ul>
+</li>
+<li><p>各种错误处理测试</p>
+<ul>
+<li>对运行发生的错误描述地难以理解</li>
+<li>报告的错误与实际遇到的错误不一致</li>
+<li>例外条件的处理不正确</li>
+<li>提供的错误信息不足，以致无法找到出错的原因</li>
+</ul>
+</li>
+<li><p>模块边界条件测试</p>
+<ul>
+<li>处理n维数组的第n个元素时是否出错</li>
+<li>在n次循环的第0次、1次、n次是否有错误</li>
+<li>运算或判断中取最大和最小值时是否有错误</li>
+<li>数据流、控制流中刚好等于、大于、小于确定的比较值时是否出现错误等</li>
+</ul>
+<p>边界条件测试是单元测试的最后一步，是非常重要的，必须采用边界值分析方法来设计测试用例</p>
+</li>
+</ol>
+<h2 id="集成测试"><a href="#集成测试" class="headerlink" title="集成测试"></a>集成测试</h2><p>将经过单元测试的模块按照设计要求把它们连接起来，组成所规定的软件系统的过程称为“集成”。</p>
+<h3 id="集成测试的主要任务"><a href="#集成测试的主要任务" class="headerlink" title="集成测试的主要任务"></a>集成测试的主要任务</h3><p>集成测试的主要任务是<strong>检验软件系统是否符合实际软件结构</strong>，发现与接口有关的各种错误。集成测试主要解决的5个测试问题：</p>
+<ul>
+<li>将各模块连接起来，检查模块相互调用时，数据经过接口是否丢失</li>
+<li>将各个子功能组合起来，检查能否到达预期要求的各项功能</li>
+<li>一个模块的功能是否会对另一个模块的功能产生不利的影响</li>
+<li>全局数据结构是否有问题，会不会被异常修改</li>
+<li>单个模块的误差累积起来，是否会被放大，从而达到不可接受的程度</li>
+</ul>
+<p>集成测试的原则</p>
+<ul>
+<li>所有公共接口都要被测试到</li>
+<li>关键模块必须进行充分的测试</li>
+<li>集成测试应当按一定的层次进行</li>
+<li>集成测试应当按一定的层次进行</li>
+<li>集成测试的策略选择应当综合考虑质量、成本和进度之间的关系</li>
+<li>集成测试应该尽早开始，并以总体设计为基础</li>
+<li>在模块与接口的划分上，测试人员应当和开发人员进行充分的沟通</li>
+<li>当测试接口发生修改时，涉及的相关接口必须进行再测试</li>
+<li>测试执行结果应当如实的记录</li>
+</ul>
+<h3 id="集成测试实施方案"><a href="#集成测试实施方案" class="headerlink" title="集成测试实施方案"></a>集成测试实施方案</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220516093934743.png" alt="image-20220516093934743"></p>
+<ol>
+<li><p>非增量式集成测试</p>
+<p>概括来说，非增量式集成测试是采用一步到位的方法来进行测试，即对所有模块进行个别的单元测试后，按程序结构图将各模块两届起来，把连接后的程序当作一个整体进行测试。如上图，在ABCDEF都开发完后，再将各个组件联合起来测试。</p>
+<p>优点：</p>
+<ul>
+<li>一个测试案例会直接贯穿多个模块，单个测试案例的覆盖率高，所以总测试案例数少</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>测试的颗粒度较粗，对单个模块的各种集成情况，无法测试完全；</li>
+<li>测试过程中发现问题难以定位，不能直接确认到是哪个模块导致；</li>
+<li>发现问题较晚，若需要为了解决问题需要改造接口，则成本较大；</li>
+</ul>
+</li>
+<li><p>增量式集成测试</p>
+<p>增量测试是指从某一功能点开始，逐步对整个流程进行测试</p>
+<ol>
+<li><p>自顶向下增量式测试</p>
+<p>与非增量测试相同，直接从整体的功能入口开始测试。不同的是，自顶向下时并不是直接将各个模块实际引用了进来，有深度优先策略和广度优先策略两种。</p>
+<p>深度优先：可选择从任意一条路径开始，若选最左边路径开始，则顺序为</p>
+<ol>
+<li>把B、E与主控模块A集成在一起，进行测试</li>
+<li>集成C</li>
+<li>集成D、E</li>
+</ol>
+<p>广度优先：</p>
+<ol>
+<li>把B、C、D与主控模块A集成在一起，进行测试</li>
+<li>集成E、F</li>
+</ol>
+</li>
+<li><p>自底向上增量式测试</p>
+<p>自底向上的顺序与自顶向下相反，需要更多的测试案例，而不再需要测试桩。</p>
+<p>结合案例，测试步骤如下：</p>
+<ol>
+<li>对E、C、F进行测试，确保功能正常；</li>
+<li>对B、D模块测试，并且将E、F直接引入调用，进一步测试E、F；</li>
+<li>对A模块测试，并且将B、C、D直接引入调用；</li>
+</ol>
+</li>
+<li><p>其他集成测试实施方案</p>
+<ol>
+<li>三明治集成测试。将自顶向下测试与自底向上测试两种模式有机结合。三明治集成测试更重要的是采取持续集成的策略，软件开发中各个模块不是同时完成，根据进度将完成的模块经可能早地进行集成，有助于尽早发现缺陷，避免集成阶段大量缺陷涌现。同时自底向上集成时，先期完成的模块将是后期模块的被调用程序，自顶而下集成时，先期完成的模块将是后期模块的驱动程序。</li>
+<li>核心系统先行集成测试。核心系统先行集成测试法的思想是先对核心软件部件进行集成测试，在测试通过的基础上再按各外围软件不见的重要程度逐个基础到核心系统中。</li>
+<li>高频集成测试。是指同步与软件开发的过程，每隔一段时间对开发团队的现有代码进行一次集成测试。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Kabuda</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.kabubuda.xyz/post/fb590188/">https://blog.kabubuda.xyz/post/fb590188/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.kabubuda.xyz" target="_blank">Kabuda</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">软件测试</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220516093934743.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/post/8ed3a32/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220511153945677.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">软件测试基本技术</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/24a94fb6/" title="软件测试概述"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220507174323666.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-08</div><div class="title">软件测试概述</div></div></a></div><div><a href="/post/8ed3a32/" title="软件测试基本技术"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220511153945677.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-11</div><div class="title">软件测试基本技术</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC81NDUxMS8zMDk4Mg"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/kabuda.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Kabuda</div><div class="author-info__description">我叫卡布达，我喜欢吃西瓜</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://qm.qq.com/cgi-bin/qm/qr?k=pJF0Twqn4iI1_Nw9TRlq4ay7mUqE1Ar3" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:2822797738@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">正在装修中··· 卡布 卡布</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="toc-text">单元测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">单元测试的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E7%9A%84%E4%B8%BB%E8%A6%81%E4%BB%BB%E5%8A%A1"><span class="toc-text">单元测试的主要任务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95"><span class="toc-text">集成测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95%E7%9A%84%E4%B8%BB%E8%A6%81%E4%BB%BB%E5%8A%A1"><span class="toc-text">集成测试的主要任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95%E5%AE%9E%E6%96%BD%E6%96%B9%E6%A1%88"><span class="toc-text">集成测试实施方案</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/fb590188/" title="软件测试过程"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220516093934743.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="软件测试过程"/></a><div class="content"><a class="title" href="/post/fb590188/" title="软件测试过程">软件测试过程</a><time datetime="2022-05-15T02:16:31.000Z" title="发表于 2022-05-15 10:16:31">2022-05-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/8ed3a32/" title="软件测试基本技术"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220511153945677.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="软件测试基本技术"/></a><div class="content"><a class="title" href="/post/8ed3a32/" title="软件测试基本技术">软件测试基本技术</a><time datetime="2022-05-11T07:28:42.000Z" title="发表于 2022-05-11 15:28:42">2022-05-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/24a94fb6/" title="软件测试概述"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220507174323666.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="软件测试概述"/></a><div class="content"><a class="title" href="/post/24a94fb6/" title="软件测试概述">软件测试概述</a><time datetime="2022-05-08T08:30:10.000Z" title="发表于 2022-05-08 16:30:10">2022-05-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/bb7571ed/" title="设计模式概述"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/kabudac/picGo/img/open-close.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设计模式概述"/></a><div class="content"><a class="title" href="/post/bb7571ed/" title="设计模式概述">设计模式概述</a><time datetime="2022-04-16T08:09:44.000Z" title="发表于 2022-04-16 16:09:44">2022-04-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/67c8035e/" title="SpringCloud笔记"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/kabubuda/picGo/img/SpringCloud.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SpringCloud笔记"/></a><div class="content"><a class="title" href="/post/67c8035e/" title="SpringCloud笔记">SpringCloud笔记</a><time datetime="2022-03-27T14:30:12.000Z" title="发表于 2022-03-27 22:30:12">2022-03-27</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/kabudac/picGo/img/image-20220516093934743.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Kabuda</div><div class="footer_custom_text">喜欢您来</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>function loadLivere () {
+  if (typeof LivereTower === 'object') {
+    window.LivereTower.init()
+  }
+  else {
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  }
+}
+
+if ('Livere' === 'Livere' || !true) {
+  if (true) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+  else loadLivere()
+}
+else {
+  function loadOtherComment () {
+    loadLivere()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card- history"> <div class="card-content"> <div class="item-headline"> <i class="fas fa-clock fa-spin"></i> <span>那年今日</span> </div> <div id="history-baidu" style="height: 100px;overflow: hidden"> <div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"> <div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"> </div> </div> </div> </div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='/'|| '/' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="ghbdages" style="overflow:hidden;max-height:90px;height:auto;text-align:center;margin-top:10px"><div class="swiper-wrapper"><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" title="主题版本Butterfly_v3.8.2"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/%E6%A1%86%E6%9E%B6Hexo-%E4%B8%BB%E9%A2%98Butterfly-blue?style=for-the-badge" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" title="本站使用腾讯云CDN提供静态加速"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/CDN-%E8%85%BE%E8%AE%AF%E4%BA%91-blue?logo=CodePen&amp;logoColor=red&amp;style=for-the-badge" alt=""/></a><a class="github-badge" target="_blank" href="https://beian.miit.gov.cn/" style="margin-inline:5px" title="本站已在工信部备案 赣ICP备2021003010号"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/%E8%B5%A3ICP%E5%A4%87-2021003010%E5%8F%B7-yellowgreen?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFDUlEQVQ4y0XU228c9RnG8e8cdnZ29jRrr3e99aYBxwpOIME0SVuo66RpBWllDPJFIAhVRYRjRVGrctPSC0Qv6A2oqKWt0lw0KBetQEKNo5QkBBVIRKAoKUmUg3Ecx2vHsffg3dmdw87O/HoR1f4HPnpe6XleSQgBdguAEBlZhDhaiVikF2j22lfPjH145POnPKej7bj/7n1dmze/B/0lzxNEHQdkCZABIJVEEkLg23WQBHIgULQM8NGOySNHnzv5rytjwpnUZz0DJWOyNqvjlI3O8Pf7JzY8OL5fBLdNCK+JkCRAoKT7btENyaIplhFGBjRXP/Gn/R/++Onju5vujL4+obBXv8mz+iz33Zun6968uvfpYw8fffO1Q1JM0WxNwuU/+OoXsJJVkZGVFKpcKXpnXn3/9wfr7Nnbz0+KDdJ/uUDlckBlKqA++mceCs7x4oFH2feuj7j813cThqvLegI9Hl0FE55FPFofvD7x8tTI6LkRcyDPT7PnmD7YQF5jElht8EKkHpNTL5xkt3GG/Hfu4Qejh0eXPtk/bc+cXX/xg3+uglHPQXXfTxy6nNQ+m9/KD7daNM82kK/Xkcwo0WqAe/Imkdu70ZsO5b+dZvyBNie+2sjbHwe9CallIA+tgvWlcjH89IM3QikGqk3KmqexAJHAh6qLtM5A22Ii32ihEVKedujr8kCSqDVloj3qG4PD47etgDOXjo235+aGMwkNOlFEoUB2uJcmAuu+boI9RRKvDGG8uBm5xyC3JUvLboMQFHIGlM7uqM6eenIFNBKZOxuWT3+PC3o3R08bqDtTVB5cSzBnIX3Zwj58E396Ge2lYbp+fjfvHKgBcYY2qbSmFnFLU8UVMKzOjzZqKncVLYrf1Hjr7Tj/fq3E0LYCaSOJfaFGuOjhnquRnFvm/KtXePNAlPyQyaa+OuU5D796aXgFlNWWaTVkUktX2P1AQMdP4E8s0P33L5D7IrR7FMKcSnZngcKJq5T3nafVVhgfi5CsTGI1VNSkrAGoADHj68flO66NBfk+nviWxet9Pbw1twF/9gLdlUnkdAznQg1rIMdcpsA/5BikTJ749iKdZBHzTgkjs2ZiBQQ5JxqC+SmLuzZM89tfbuHll0aYsDZBw2fMrtBlyrxzOEkTA8jwi+d1tg1MMj8JuDZhxxpaAVWzvbWTzOMv+JQWL/Kz4Sjjx+OcOGJzSd7Mro1fUYiV6Rzqo11zWDNo8Ktd17h56hq2r6NnNVRTGwRuPQev+dljldO/O+gstPHKPpRmWPfwENG8DkGFoKLSXHRI394Fa7uhVGb6vcs4ySyJ/gSxXoP0wJ7tWuZHH0lCCAA6rf8+Xj3/+h8D10mVP15AjQt6t28gqDr4dgvZ0NG74khahMqpKTqBSnrrOnyXavqOkUfiZuq4pN1/62TfmcFZckruQszW82Eqv3OAoN4isBpgaCiaiRaD9nKTVqmGvrYbvZjHW7Zx56wwtqaJkkoR+39tRPsqCp/8OveNZG8kU8Crh4SBShgouEsWiJB2pU5zcglJiYAk4d4oE4nJ5L9byGqG9UzosLplTUkR7d72kGWn/2CXSramLJPKdYhINprko3jLCMchOZglNZBC1pqoaQ0p03u9o97zG9VY/4iiLbFaG+EjRVS7UYm/4FzMv+LUl3Z5/uz3vraxZ2NoSQndlLvUWBLrBtdjPaat5kbOVqcWjzkztaN923OhpCiIwAXgfy17NxK98SWXAAAAAElFTkSuQmCC&amp;style=for-the-badge" alt=""/></a></div></div></div><style>a.github-badge:hover:before {display:none}</style>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script defer src="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://cdn.jsdelivr.net/npm/hexo-butterfly-footer-beautify/lib/swiperbdage_init_js.min.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>
