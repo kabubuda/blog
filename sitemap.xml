@@ -216,13 +216,6 @@
   </url>
   
   <url>
-    <loc>https://blog.kabubuda.xyz/tags/Redis/</loc>
-    <lastmod>2022-08-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.kabubuda.xyz/tags/JVM/</loc>
     <lastmod>2022-08-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -230,14 +223,14 @@
   </url>
   
   <url>
-    <loc>https://blog.kabubuda.xyz/tags/Dubbo/</loc>
+    <loc>https://blog.kabubuda.xyz/tags/Redis/</loc>
     <lastmod>2022-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.kabubuda.xyz/tags/SpringCloud/</loc>
+    <loc>https://blog.kabubuda.xyz/tags/Dubbo/</loc>
     <lastmod>2022-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -259,6 +252,13 @@
   
   <url>
     <loc>https://blog.kabubuda.xyz/tags/Docker/</loc>
+    <lastmod>2022-08-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kabubuda.xyz/tags/SpringCloud/</loc>
     <lastmod>2022-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
