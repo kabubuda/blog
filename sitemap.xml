@@ -209,14 +209,14 @@
 
   
   <url>
-    <loc>https://blog.kabubuda.xyz/tags/JavaWeb/</loc>
+    <loc>https://blog.kabubuda.xyz/tags/JVM/</loc>
     <lastmod>2022-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.kabubuda.xyz/tags/JVM/</loc>
+    <loc>https://blog.kabubuda.xyz/tags/JavaWeb/</loc>
     <lastmod>2022-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -251,13 +251,6 @@
   </url>
   
   <url>
-    <loc>https://blog.kabubuda.xyz/tags/Docker/</loc>
-    <lastmod>2022-08-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.kabubuda.xyz/tags/SpringCloud/</loc>
     <lastmod>2022-08-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -265,7 +258,7 @@
   </url>
   
   <url>
-    <loc>https://blog.kabubuda.xyz/tags/OpenWrt/</loc>
+    <loc>https://blog.kabubuda.xyz/tags/Docker/</loc>
     <lastmod>2022-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -279,7 +272,7 @@
   </url>
   
   <url>
-    <loc>https://blog.kabubuda.xyz/tags/AdGuard/</loc>
+    <loc>https://blog.kabubuda.xyz/tags/OpenWrt/</loc>
     <lastmod>2022-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -287,6 +280,13 @@
   
   <url>
     <loc>https://blog.kabubuda.xyz/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/</loc>
+    <lastmod>2022-08-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kabubuda.xyz/tags/AdGuard/</loc>
     <lastmod>2022-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -323,14 +323,14 @@
   </url>
   
   <url>
-    <loc>https://blog.kabubuda.xyz/categories/%E6%8A%98%E8%85%BE/</loc>
+    <loc>https://blog.kabubuda.xyz/categories/%E5%88%86%E4%BA%AB/</loc>
     <lastmod>2022-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.kabubuda.xyz/categories/%E5%88%86%E4%BA%AB/</loc>
+    <loc>https://blog.kabubuda.xyz/categories/%E6%8A%98%E8%85%BE/</loc>
     <lastmod>2022-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
