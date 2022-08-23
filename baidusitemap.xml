@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.kabubuda.xyz/post/976df3f/</loc>
+    <lastmod>2022-08-23</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.kabubuda.xyz/post/7b5f281d/</loc>
+    <lastmod>2022-08-23</lastmod>
+  </url>
+  <url>
     <loc>https://blog.kabubuda.xyz/post/f7d4a7ae/</loc>
     <lastmod>2022-08-23</lastmod>
   </url>
@@ -78,10 +86,6 @@
   </url>
   <url>
     <loc>https://blog.kabubuda.xyz/post/67c8035e/</loc>
-    <lastmod>2022-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.kabubuda.xyz/post/976df3f/</loc>
     <lastmod>2022-05-11</lastmod>
   </url>
 </urlset> 
