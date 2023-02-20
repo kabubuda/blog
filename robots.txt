@@ -8,5 +8,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: https://blog.kabubuda.xyz/sitemap.xml
-Sitemap: https://blog.kabubuda.xyz/baidusitemap.xml
+Sitemap: https://blog.kabudac.top/sitemap.xml
+Sitemap: https://blog.kabudac.top/baidusitemap.xml
